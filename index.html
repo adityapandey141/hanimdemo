@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Hanim Botanical Pvt. Ltd. — Michelia Champaca | Soil to Oil</title>
+<meta name="description" content="Global enterprise botanical manufacturer specializing exclusively in Michelia Champaca. Ethical soil-to-oil infrastructure for luxury fragrance, pharmaceutical, and nutraceutical industries."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --ink: #0d0f0c;
+  --forest: #0f1f10;
+  --moss: #1a3a1c;
+  --sage: #2d5c30;
+  --leaf: #4a8c4e;
+  --gold: #c9a84c;
+  --gold-light: #e8c87a;
+  --cream: #f5f0e8;
+  --parchment: #ede7d9;
+  --white: #faf9f6;
+  --grey: #7a7a72;
+  --charcoal: #2a2a24;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Jost', sans-serif; background: var(--white); color: var(--ink); overflow-x: hidden; cursor: none; }
+
+/* CURSOR */
+.cursor-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: transform 0.1s; }
+.cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(201,168,76,0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: all 0.18s cubic-bezier(0.23, 1, 0.32, 1); }
+
+/* NAV */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 0 60px; height: 80px; display: flex; align-items: center; justify-content: space-between; transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+nav.solid { background: rgba(13, 15, 12, 0.97); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(201,168,76,0.12); }
+.nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.nav-logo-text { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--white); letter-spacing: 0.02em; line-height: 1.2; }
+.nav-logo-sub { font-family: 'Jost', sans-serif; font-size: 0.6rem; color: rgba(245,240,232,0.4); letter-spacing: 0.25em; text-transform: uppercase; display: block; margin-top: 1px; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.55); text-decoration: none; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s cubic-bezier(0.23,1,0.32,1); }
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); background: var(--gold); border: none; padding: 11px 26px; text-decoration: none; transition: all 0.3s; display: inline-block; }
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+#hero { height: 100vh; min-height: 700px; position: relative; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1800&q=85'); background-size: cover; background-position: center 40%; transform: scale(1.08); animation: heroZoom 20s ease-out forwards; }
+@keyframes heroZoom { from { transform: scale(1.08); } to { transform: scale(1.0); } }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,14,10,0.96) 0%, rgba(10,14,10,0.7) 30%, rgba(10,14,10,0.3) 60%, rgba(10,14,10,0.15) 100%); }
+.hero-overlay-side { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,14,10,0.5) 0%, transparent 60%); }
+.hero-content { position: relative; z-index: 2; width: 100%; padding: 0 80px 60px; max-width: 1400px; margin: 0 auto; }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 16px; margin-bottom: 28px; opacity: 0; animation: fadeUpIn 1s cubic-bezier(0.23,1,0.32,1) 0.4s forwards; }
+.hero-eyebrow-line { width: 48px; height: 1px; background: var(--gold); }
+.hero-eyebrow-text { font-family: 'Jost', sans-serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); }
+.hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 5vw, 7.5rem); font-weight: 700; line-height: 0.95; color: var(--white); margin-bottom: 36px; opacity: 0; animation: fadeUpIn 1.1s cubic-bezier(0.23,1,0.32,1) 0.65s forwards; letter-spacing: -0.01em; }
+.hero-h1 em { font-style: italic; color: var(--gold-light); font-weight: 400; }
+.hero-desc { font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 200; color: rgba(245,240,232,0.65); max-width: 520px; line-height: 1.8; margin-bottom: 48px; opacity: 0; animation: fadeUpIn 1.1s cubic-bezier(0.23,1,0.32,1) 0.9s forwards; letter-spacing: 0.02em; }
+.hero-ctas { display: flex; gap: 16px; opacity: 0; animation: fadeUpIn 1.1s cubic-bezier(0.23,1,0.32,1) 1.1s forwards; }
+.btn-gold { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; background: var(--gold); color: var(--ink); padding: 16px 36px; text-decoration: none; transition: all 0.35s; display: inline-block; position: relative; overflow: hidden; }
+.btn-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold-light); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.23,1,0.32,1); }
+.btn-gold:hover::before { transform: translateX(0); }
+.btn-gold span { position: relative; z-index: 1; }
+.btn-ghost { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; background: transparent; color: rgba(245,240,232,0.75); padding: 16px 36px; text-decoration: none; border: 1px solid rgba(245,240,232,0.25); transition: all 0.35s; display: inline-block; }
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); }
+.hero-stats { position: absolute; right: 80px; bottom: 100px; display: flex; flex-direction: column; gap: 28px; z-index: 2; opacity: 0; animation: fadeIn 1.2s ease 1.4s forwards; }
+.hero-stat { text-align: right; border-right: 1px solid rgba(201,168,76,0.35); padding-right: 20px; }
+.hero-stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 700; color: var(--gold-light); line-height: 1; display: block; }
+.hero-stat-label { font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,240,232,0.35); display: block; margin-top: 4px; }
+.hero-scroll { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeIn 1s ease 1.8s forwards; }
+.hero-scroll-text { font-family: 'Jost', sans-serif; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245,240,232,0.3); writing-mode: vertical-rl; }
+.hero-scroll-bar { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollPulse 2s ease infinite; }
+@keyframes scrollPulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* MARQUEE */
+.marquee-section { background: var(--ink); border-top: 1px solid rgba(201,168,76,0.15); border-bottom: 1px solid rgba(201,168,76,0.15); padding: 18px 0; overflow: hidden; }
+.marquee-track { display: flex; white-space: nowrap; animation: marqueeRoll 45s linear infinite; }
+@keyframes marqueeRoll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-item { display: inline-flex; align-items: center; gap: 32px; padding-right: 32px; }
+.marquee-text { font-family: 'Jost', sans-serif; font-size: 0.62rem; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(201,168,76,0.6); }
+.marquee-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(201,168,76,0.3); flex-shrink: 0; }
+
+/* ANIMATIONS */
+@keyframes fadeUpIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.9s cubic-bezier(0.23,1,0.32,1), transform 0.9s cubic-bezier(0.23,1,0.32,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.12s; }
+.reveal-delay-2 { transition-delay: 0.24s; }
+.reveal-delay-3 { transition-delay: 0.36s; }
+.reveal-delay-4 { transition-delay: 0.48s; }
+.reveal-delay-5 { transition-delay: 0.60s; }
+
+/* SECTION COMMON */
+.section-label { font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.section-label::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); flex-shrink: 0; }
+.section-h2 { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(2.4rem, 4.5vw, 4.8rem); line-height: 1.0; letter-spacing: -0.01em; color: var(--ink); }
+.section-h2 em { font-style: italic; font-weight: 400; color: var(--sage); }
+.section-h2-light { color: var(--white); }
+.section-h2-light em { color: var(--gold-light); }
+.section-body { font-family: 'Jost', sans-serif; font-size: 0.95rem; font-weight: 300; color: var(--grey); line-height: 1.85; }
+
+/* MODEL */
+#model { background: var(--white); padding: 140px 80px; }
+.model-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 100px; }
+.pipeline-grid { display: grid; grid-template-columns: repeat(6, 1fr); position: relative; }
+.pipeline-grid::after { content: ''; position: absolute; top: 52px; left: 0; right: 0; height: 1px; background: linear-gradient(to right, var(--gold) 0%, rgba(201,168,76,0.15) 100%); z-index: 0; }
+.pipeline-step { padding: 0 20px 0 0; position: relative; z-index: 1; }
+.pipeline-step-num { width: 40px; height: 40px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.08em; color: var(--gold); background: var(--white); margin-bottom: 28px; position: relative; transition: all 0.4s; }
+.pipeline-step:hover .pipeline-step-num { background: var(--gold); color: var(--ink); transform: scale(1.1); }
+.pipeline-step-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 500; color: var(--ink); margin-bottom: 12px; line-height: 1.3; }
+.pipeline-step-body { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300; color: var(--grey); line-height: 1.7; }
+.model-bottom { margin-top: 80px; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; padding: 48px 56px; background: var(--forest); position: relative; overflow: hidden; }
+.model-bottom::before { content: ''; position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=60') center/cover; opacity: 0.07; }
+.model-bottom-text { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-style: italic; font-weight: 400; color: var(--white); position: relative; z-index: 1; line-height: 1.3; white-space: nowrap; }
+.model-bottom-text em { color: var(--gold-light); font-style: normal; }
+.model-bottom-body { font-family: 'Jost', sans-serif; font-size: 0.83rem; font-weight: 300; color: rgba(245,240,232,0.5); line-height: 1.8; position: relative; z-index: 1; }
+
+/* PROCESS */
+#process { background: var(--ink); position: relative; overflow: hidden; padding: 140px 80px; }
+.process-bg-img { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=1600&q=60'); background-size: cover; background-position: center; opacity: 0.05; }
+.process-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 80px; position: relative; z-index: 2; }
+.process-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; position: relative; z-index: 2; }
+.process-card { padding: 48px 36px 36px; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.08); position: relative; overflow: hidden; transition: background 0.5s, border-color 0.5s; }
+.process-card:hover { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.25); }
+.process-card-key { position: absolute; top: 20px; right: 20px; background: var(--gold); padding: 4px 12px; font-family: 'Jost', sans-serif; font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+.process-card-num { font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: rgba(201,168,76,0.4); text-transform: uppercase; margin-bottom: 20px; display: block; }
+.process-card-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1.05; margin-bottom: 20px; letter-spacing: -0.01em; }
+.process-card-title em { font-style: italic; font-weight: 400; }
+.process-card-divider { width: 36px; height: 1px; background: rgba(201,168,76,0.4); margin-bottom: 20px; }
+.process-card-body { font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 300; color: rgba(245,240,232,0.5); line-height: 1.8; margin-bottom: 28px; }
+.process-outputs { border-top: 1px solid rgba(201,168,76,0.12); padding-top: 20px; display: flex; flex-direction: column; gap: 6px; }
+.process-output-item { font-family: 'Jost', sans-serif; font-size: 0.75rem; color: rgba(201,168,76,0.7); display: flex; align-items: center; gap: 10px; }
+.process-output-item::before { content: ''; display: block; width: 4px; height: 1px; background: var(--gold); }
+.specs-bar { margin-top: 60px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(201,168,76,0.12); position: relative; z-index: 2; }
+.spec-item { padding: 28px 24px; border-right: 1px solid rgba(201,168,76,0.12); transition: background 0.3s; }
+.spec-item:last-child { border-right: none; }
+.spec-item:hover { background: rgba(201,168,76,0.04); }
+.spec-label { font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.45); margin-bottom: 8px; display: block; }
+.spec-value { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400; color: var(--white); }
+.spec-sub { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; color: rgba(245,240,232,0.3); margin-top: 3px; display: block; }
+
+/* INFRASTRUCTURE */
+#infrastructure { padding: 0; background: var(--parchment); }
+.infra-grid { display: grid; grid-template-columns: 1fr 1fr; }
+.infra-image-panel { position: relative; min-height: 700px; overflow: hidden; }
+.infra-image-panel img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.23,1,0.32,1); display: block; }
+.infra-image-panel:hover img { transform: scale(1.04); }
+.infra-image-overlay { position: absolute; inset: 0; background: linear-gradient(to right, transparent 40%, rgba(13,15,12,0.7) 100%); }
+.infra-content-panel { padding: 80px 70px; background: var(--ink); display: flex; flex-direction: column; justify-content: center; }
+.infra-items { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+.infra-item { padding: 28px 0; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; gap: 24px; align-items: flex-start; transition: padding-left 0.35s; }
+.infra-item:hover { padding-left: 12px; }
+.infra-item-num { font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.15em; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+.infra-item-title { font-family: 'Syne', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--white); letter-spacing: 0.04em; margin-bottom: 6px; }
+.infra-item-body { font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 300; color: rgba(245,240,232,0.4); line-height: 1.7; }
+.cert-badges { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px; }
+.cert-badge { font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,168,76,0.7); border: 1px solid rgba(201,168,76,0.2); padding: 7px 16px; transition: all 0.3s; }
+.cert-badge:hover { background: rgba(201,168,76,0.08); border-color: var(--gold); color: var(--gold-light); }
+
+/* INDUSTRIES */
+#industries { padding: 140px 80px; background: var(--white); position: relative; overflow: hidden; }
+.industries-bg { position: absolute; top: 0; right: 0; width: 45%; height: 100%; opacity: 0.035; background: url('https://images.unsplash.com/photo-1607656311319-f06a1ae2b12c?w=800&q=40') center/cover; pointer-events: none; }
+.industries-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 80px; }
+.industry-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.industry-card { padding: 48px 36px; border: 1px solid #e2ddd4; position: relative; overflow: hidden; background: var(--white); transition: all 0.5s cubic-bezier(0.23,1,0.32,1); }
+.industry-card:not(:first-child) { border-left: none; }
+.industry-card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 0.5s; }
+.industry-card:hover .industry-card-bg { opacity: 0.08; }
+.industry-card:hover { background: var(--forest); border-color: var(--forest); }
+.industry-card:hover .industry-card-num { color: rgba(201,168,76,0.2); }
+.industry-card:hover .industry-icon { color: var(--gold); }
+.industry-card:hover .industry-card-title { color: var(--white); }
+.industry-card:hover .industry-card-body { color: rgba(245,240,232,0.45); }
+.industry-card:hover .industry-tag { color: rgba(201,168,76,0.7); border-color: rgba(201,168,76,0.2); }
+.industry-card-num { font-family: 'Syne', sans-serif; font-size: 2.5rem; font-weight: 800; color: rgba(0,0,0,0.05); line-height: 1; margin-bottom: 28px; transition: color 0.5s; letter-spacing: -0.03em; }
+.industry-icon { width: 44px; height: 44px; border: 1px solid currentColor; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--sage); transition: color 0.5s; }
+.industry-card-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; color: var(--ink); line-height: 1.25; margin-bottom: 14px; transition: color 0.5s; }
+.industry-card-body { font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 300; color: var(--grey); line-height: 1.75; margin-bottom: 24px; transition: color 0.5s; }
+.industry-tag { font-family: 'Jost', sans-serif; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage); border: 1px solid rgba(45,92,48,0.25); padding: 5px 12px; display: inline-block; margin-right: 6px; margin-bottom: 6px; transition: all 0.5s; }
+
+/* IMPACT */
+#impact { position: relative; overflow: hidden; }
+.impact-image { position: absolute; inset: 0; background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1600&q=70'); background-size: cover; background-position: center 30%; filter: brightness(0.22) saturate(0.6); }
+.impact-content { position: relative; z-index: 2; padding: 140px 80px; max-width: 1400px; margin: 0 auto; }
+.impact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.impact-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201,168,76,0.15); }
+.impact-stat { background: rgba(10,14,10,0.82); backdrop-filter: blur(10px); padding: 40px 32px; transition: background 0.4s; }
+.impact-stat:hover { background: rgba(15,31,16,0.88); }
+.impact-stat-num { font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700; color: var(--gold-light); line-height: 1; margin-bottom: 6px; display: block; }
+.impact-stat-unit { font-size: 1.4rem; opacity: 0.6; }
+.impact-stat-label { font-family: 'Jost', sans-serif; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,168,76,0.5); margin-bottom: 10px; display: block; }
+.impact-stat-body { font-family: 'Jost', sans-serif; font-size: 0.75rem; font-weight: 300; color: rgba(245,240,232,0.35); line-height: 1.65; }
+.impact-quote { font-family: 'Instrument Serif', serif; font-size: 1.9rem; font-style: italic; color: var(--white); line-height: 1.4; margin-bottom: 32px; }
+.impact-quote em { color: var(--gold-light); font-style: normal; }
+.impact-body { font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 300; color: rgba(245,240,232,0.5); line-height: 1.85; }
+
+/* DIFFERENTIATORS */
+#differentiators { padding: 140px 80px; background: var(--parchment); }
+.diff-layout { display: grid; grid-template-columns: 1fr 2fr; gap: 100px; align-items: start; }
+.diff-sticky { position: sticky; top: 120px; }
+.diff-items { display: flex; flex-direction: column; gap: 0; }
+.diff-item { padding: 36px 0; border-bottom: 1px solid rgba(13,15,12,0.08); display: grid; grid-template-columns: 60px 1fr; gap: 24px; align-items: start; transition: padding-left 0.4s; }
+.diff-item:first-child { border-top: 1px solid rgba(13,15,12,0.08); }
+.diff-item:hover { padding-left: 16px; }
+.diff-item-num { font-family: 'Syne', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; color: var(--gold); margin-top: 4px; }
+.diff-item-title { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 500; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+.diff-item-body { font-family: 'Jost', sans-serif; font-size: 0.83rem; font-weight: 300; color: var(--grey); line-height: 1.8; }
+
+/* TRUST BAR */
+.trust-bar { background: var(--forest); padding: 56px 80px; display: flex; align-items: center; overflow: hidden; }
+.trust-item { flex: 1; padding: 0 40px; border-right: 1px solid rgba(201,168,76,0.12); display: flex; flex-direction: column; gap: 6px; }
+.trust-item:first-child { padding-left: 0; }
+.trust-item:last-child { border-right: none; }
+.trust-item-label { font-family: 'Jost', sans-serif; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(201,168,76,0.4); }
+.trust-item-value { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 500; color: var(--white); }
+.trust-item-sub { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; color: rgba(245,240,232,0.3); }
+
+/* CONTACT */
+#contact { background: var(--ink); padding: 140px 80px 0; position: relative; overflow: hidden; }
+.contact-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1551781019-b4b2b3e14b89?w=1200&q=40') center/cover; opacity: 0.04; }
+.contact-layout { display: grid; grid-template-columns: 5fr 7fr; gap: 100px; position: relative; z-index: 2; padding-bottom: 100px; }
+.contact-form-field { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.12); color: var(--white); font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 300; padding: 14px 0; outline: none; transition: border-color 0.3s; -webkit-appearance: none; }
+.contact-form-field::placeholder { color: rgba(245,240,232,0.2); font-size: 0.85rem; letter-spacing: 0.04em; }
+.contact-form-field:focus { border-color: var(--gold); }
+select.contact-form-field option { background: var(--ink); color: var(--white); }
+.form-label { display: block; font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(201,168,76,0.5); margin-bottom: 8px; }
+.form-group { display: flex; flex-direction: column; }
+.submit-btn { width: 100%; background: var(--gold); color: var(--ink); font-family: 'Jost', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; padding: 18px; border: none; cursor: none; transition: all 0.35s; position: relative; overflow: hidden; }
+.submit-btn::before { content: ''; position: absolute; inset: 0; background: var(--gold-light); transform: translateX(-101%); transition: transform 0.4s cubic-bezier(0.23,1,0.32,1); }
+.submit-btn:hover::before { transform: translateX(0); }
+.submit-btn span { position: relative; z-index: 1; }
+.cta-type { display: flex; align-items: center; gap: 14px; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 300; color: rgba(245,240,232,0.55); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05); transition: color 0.3s; }
+.cta-type:hover { color: var(--gold-light); }
+.cta-type::before { content: ''; display: block; width: 20px; height: 1px; background: var(--gold); flex-shrink: 0; transition: width 0.3s; }
+.cta-type:hover::before { width: 32px; }
+
+/* FOOTER */
+footer { background: var(--ink); border-top: 1px solid rgba(201,168,76,0.08); padding: 60px 80px 36px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-link { display: block; font-family: 'Jost', sans-serif; font-size: 0.8rem; font-weight: 300; color: rgba(245,240,232,0.35); text-decoration: none; padding: 5px 0; transition: color 0.3s; letter-spacing: 0.02em; }
+.footer-link:hover { color: var(--gold-light); }
+.footer-title { font-family: 'Jost', sans-serif; font-size: 0.58rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(201,168,76,0.45); margin-bottom: 20px; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 28px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: 'Jost', sans-serif; font-size: 0.68rem; font-weight: 300; color: rgba(245,240,232,0.2); letter-spacing: 0.08em; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  nav { padding: 0 28px; }
+  .nav-links { display: none; }
+  #model, #process, #differentiators, #industries, #contact { padding: 80px 28px; }
+  .model-header, .process-header, .contact-layout { grid-template-columns: 1fr; gap: 40px; }
+  .pipeline-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .pipeline-grid::after { display: none; }
+  .process-cards { grid-template-columns: 1fr; }
+  .infra-grid { grid-template-columns: 1fr; }
+  .infra-image-panel { min-height: 320px; }
+  .infra-content-panel { padding: 60px 28px; }
+  .industry-cards { grid-template-columns: repeat(2, 1fr); }
+  .industry-card:nth-child(3) { border-left: 1px solid #e2ddd4; border-top: none; }
+  .impact-content { padding: 80px 28px; }
+  .impact-layout { grid-template-columns: 1fr; gap: 60px; }
+  .diff-layout { grid-template-columns: 1fr; gap: 60px; }
+  .diff-sticky { position: static; }
+  .trust-bar { flex-direction: column; gap: 28px; padding: 48px 28px; }
+  .trust-item { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.12); padding: 0 0 20px; flex: none; }
+  .trust-item:last-child { border-bottom: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero-content { padding: 0 28px 100px; }
+  .hero-stats { display: none; }
+  .hero-h1 { font-size: 3rem; }
+  .specs-bar { grid-template-columns: repeat(2, 1fr); }
+  .spec-item:nth-child(2) { border-right: none; }
+  .model-bottom { grid-template-columns: 1fr; gap: 28px; }
+  .model-bottom-text { white-space: normal; font-size: 1.4rem; }
+}
+@media (max-width: 640px) {
+  .industry-cards { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .impact-stats-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 36 36" fill="none" width="36" height="36">
+      <circle cx="18" cy="18" r="17" stroke="#c9a84c" stroke-width="0.75" opacity="0.5"/>
+      <path d="M18 3C18 3 10 11 10 20C10 25.5 14 30 18 32C22 30 26 25.5 26 20C26 11 18 3 18 3Z" fill="rgba(201,168,76,0.1)" stroke="#c9a84c" stroke-width="0.75"/>
+      <line x1="18" y1="3" x2="18" y2="32" stroke="#c9a84c" stroke-width="0.5" opacity="0.5"/>
+      <ellipse cx="18" cy="20" rx="7" ry="4.5" stroke="rgba(201,168,76,0.6)" stroke-width="0.75" fill="none"/>
+      <circle cx="18" cy="11" r="1.5" fill="#c9a84c" opacity="0.7"/>
+    </svg>
+    <div>
+      <span class="nav-logo-text">Hanim Botanical</span>
+      <span class="nav-logo-sub">Pvt. Ltd. · India</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#model">Model</a></li>
+    <li><a href="#process">Technology</a></li>
+    <li><a href="#infrastructure">Infrastructure</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#impact">Impact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Request Samples</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-overlay-side"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Michelia Champaca &nbsp;·&nbsp; Soil to Oil &nbsp;·&nbsp; India</span>
+    </div>
+    <h1 class="hero-h1">
+      The World's Only<br/>
+      <em>Vertically Integrated</em><br/>
+      Golden Champa<br/>
+      Manufacturer
+    </h1>
+    <p class="hero-desc">From sapling cultivation to medical-grade extraction — complete supply chain control, delivering certified botanical raw materials to global fragrance, pharmaceutical, and nutraceutical enterprises.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-gold"><span>Request Technical Data</span></a>
+      <a href="#model" class="btn-ghost">View Our Model</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="hero-stat-num">110</span>
+      <span class="hero-stat-label">Acres Managed</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">3</span>
+      <span class="hero-stat-label">Extraction Methods</span>
+    </div>
+    <div class="hero-stat">
+      <span class="hero-stat-num">100<span style="font-size:1.4rem;">%</span></span>
+      <span class="hero-stat-label">Single-Origin</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="hero-scroll-text">Scroll</span>
+    <div class="hero-scroll-bar"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span class="marquee-text">Michelia Champaca</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Solvent Extraction</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Hydrodistillation</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Supercritical CO₂</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Luxury Fragrance Grade</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Pharmaceutical Grade</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Export Infrastructure</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Farmer-First Model</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">GC/MS Certified</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">ICH Q3C Compliant</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Michelia Champaca</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Solvent Extraction</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Hydrodistillation</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Supercritical CO₂</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Luxury Fragrance Grade</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Pharmaceutical Grade</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Export Infrastructure</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">Farmer-First Model</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">GC/MS Certified</span><span class="marquee-dot"></span></div>
+    <div class="marquee-item"><span class="marquee-text">ICH Q3C Compliant</span><span class="marquee-dot"></span></div>
+  </div>
+</div>
+
+<!-- MODEL -->
+<section id="model">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="model-header reveal">
+      <div>
+        <span class="section-label">Manufacturing Model</span>
+        <h2 class="section-h2">Soil to Oil —<br/><em>Complete Vertical<br/>Integration</em></h2>
+      </div>
+      <div style="padding-top:20px;">
+        <p class="section-body" style="max-width:480px;">Hanim Botanical controls every stage of the <em>Michelia Champaca</em> supply chain — from proprietary sapling development through certified international export. This eliminates third-party variability and delivers unmatched botanical consistency to our global partners.</p>
+        <div style="margin-top:36px;display:flex;gap:48px;">
+          <div><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;">6</div><div style="font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Controlled Stages</div></div>
+          <div><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;">0</div><div style="font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Third-Party Brokers</div></div>
+          <div><div style="font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;">1</div><div style="font-family:'Jost',sans-serif;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--grey);margin-top:4px;">Species Focus</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="pipeline-grid reveal">
+      <div class="pipeline-step"><div class="pipeline-step-num">01</div><div class="pipeline-step-title">Sapling<br/>Development</div><p class="pipeline-step-body">Proprietary high-yield saplings developed for optimal oil content and consistent floral profile.</p></div>
+      <div class="pipeline-step reveal-delay-1"><div class="pipeline-step-num">02</div><div class="pipeline-step-title">Cultivated<br/>Farming</div><p class="pipeline-step-body">110 acres under direct cultivation with standardised agronomic protocols and monitoring.</p></div>
+      <div class="pipeline-step reveal-delay-2"><div class="pipeline-step-num">03</div><div class="pipeline-step-title">Farmer<br/>Partnerships</div><p class="pipeline-step-body">Structured buy-back agreements. Sapling distribution and agricultural training provided.</p></div>
+      <div class="pipeline-step reveal-delay-3"><div class="pipeline-step-num">04</div><div class="pipeline-step-title">Precision<br/>Harvesting</div><p class="pipeline-step-body">Time-critical protocols with temperature-controlled transport preserving volatile compounds.</p></div>
+      <div class="pipeline-step reveal-delay-4"><div class="pipeline-step-num">05</div><div class="pipeline-step-title">Multi-Method<br/>Extraction</div><p class="pipeline-step-body">Solvent, hydrodistillation, CO₂ — each calibrated to the target industry specification.</p></div>
+      <div class="pipeline-step reveal-delay-5"><div class="pipeline-step-num">06</div><div class="pipeline-step-title">QC &amp; Global<br/>Export</div><p class="pipeline-step-body">Full documentation, CoA, compliance packaging, and international logistics management.</p></div>
+    </div>
+    <div class="model-bottom reveal">
+      <div class="model-bottom-text">Single-Species.<br/><em>Total Traceability.</em><br/>No Exceptions.</div>
+      <p class="model-bottom-body">Every batch is traceable to a specific farm block, harvest date, and extraction batch number. Audit-ready by design — meeting the traceability requirements of global pharmaceutical and luxury fragrance procurement teams without exception.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="process-bg-img"></div>
+  <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+    <div class="process-header">
+      <div class="reveal">
+        <span class="section-label">Extraction Technology</span>
+        <h2 class="section-h2 section-h2-light">Industrial-Grade<br/><em>Multi-Method</em><br/>Extraction</h2>
+      </div>
+      <div class="reveal reveal-delay-1" style="padding-top:20px;">
+        <p class="section-body" style="color:rgba(245,240,232,0.5);max-width:460px;">Three co-located extraction technologies, each engineered for a different industry specification. This multi-method capability allows Hanim to serve fragrance, aromatherapy, pharmaceutical, and nutraceutical customers from a single, controlled facility.</p>
+      </div>
+    </div>
+    <div class="process-cards">
+      <div class="process-card reveal">
+        <span class="process-card-num">Method 01</span>
+        <div class="process-card-title">Solvent<br/><em>Extraction</em></div>
+        <div class="process-card-divider"></div>
+        <p class="process-card-body">Hydrocarbon solvent process yielding concretes and absolutes. The gold standard for luxury perfumery — delivering the most complete olfactory profile of <em>Michelia Champaca</em> achievable.</p>
+        <div class="process-outputs">
+          <span class="process-output-item">Concretes &amp; Absolutes</span>
+          <span class="process-output-item">Fine Fragrance Industry</span>
+          <span class="process-output-item">Niche Perfumery</span>
+        </div>
+      </div>
+      <div class="process-card reveal reveal-delay-1">
+        <span class="process-card-num">Method 02</span>
+        <div class="process-card-title">Hydro-<br/><em>distillation</em></div>
+        <div class="process-card-divider"></div>
+        <p class="process-card-body">Steam and water distillation of fresh floral material. Yields clean essential oil fractions with defined GC/MS profiles, suitable for aromatherapy and wellness formulations.</p>
+        <div class="process-outputs">
+          <span class="process-output-item">Essential Oils</span>
+          <span class="process-output-item">Aromatherapy &amp; Wellness</span>
+          <span class="process-output-item">GC/MS Certified</span>
+        </div>
+      </div>
+      <div class="process-card reveal reveal-delay-2" style="border-color:rgba(201,168,76,0.22);background:rgba(201,168,76,0.03);">
+        <div class="process-card-key">Key Differentiator</div>
+        <span class="process-card-num">Method 03</span>
+        <div class="process-card-title">Supercritical<br/><em>CO₂</em></div>
+        <div class="process-card-divider" style="background:rgba(201,168,76,0.6);"></div>
+        <p class="process-card-body">Solvent-free extraction using pressurised CO₂. Produces highest-purity extracts with zero residual solvents — meeting medical-grade and pharmaceutical specifications. Thermolabile compound preservation.</p>
+        <div class="process-outputs">
+          <span class="process-output-item">Solvent-Free Medical Extracts</span>
+          <span class="process-output-item">Pharmaceutical Grade</span>
+          <span class="process-output-item">Nutraceutical Applications</span>
+        </div>
+      </div>
+    </div>
+    <div class="specs-bar reveal">
+      <div class="spec-item"><span class="spec-label">Analysis</span><span class="spec-value">GC/MS</span><span class="spec-sub">Every batch documented</span></div>
+      <div class="spec-item"><span class="spec-label">Certificate</span><span class="spec-value">CoA Issued</span><span class="spec-sub">Per production lot</span></div>
+      <div class="spec-item"><span class="spec-label">Standard</span><span class="spec-value">ICH Q3C</span><span class="spec-sub">Solvent residue compliance</span></div>
+      <div class="spec-item"><span class="spec-label">Testing</span><span class="spec-value">Microbial</span><span class="spec-sub">Pharmaceutical standard</span></div>
+      <div class="spec-item"><span class="spec-label">Metals</span><span class="spec-value">Heavy Metal</span><span class="spec-sub">Third-party verified</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- INFRASTRUCTURE -->
+<section id="infrastructure" style="padding:0;">
+  <div class="infra-grid">
+    <div class="infra-image-panel reveal">
+      <img src="https://images.unsplash.com/photo-1614064641938-3bbee52942c7?w=900&q=80" alt="Extraction facility" loading="lazy"/>
+      <div class="infra-image-overlay"></div>
+    </div>
+    <div class="infra-content-panel reveal reveal-delay-1">
+      <span class="section-label">Facility &amp; Capability</span>
+      <h2 class="section-h2 section-h2-light" style="font-size:clamp(2rem,3.5vw,3.5rem);">Built for<br/><em>Global Supply</em></h2>
+      <div class="infra-items">
+        <div class="infra-item"><span class="infra-item-num">01</span><div><div class="infra-item-title">World-Class Extraction Facility</div><p class="infra-item-body">Purpose-built botanical extraction plant with three co-located technologies, GMP-aligned layout, and environmental control throughout.</p></div></div>
+        <div class="infra-item"><span class="infra-item-num">02</span><div><div class="infra-item-title">Quality Management System</div><p class="infra-item-body">In-house analytical laboratory. GC/MS, optical rotation, refractive index. Validated methods per Ph.Eur / AFNOR. Full batch traceability.</p></div></div>
+        <div class="infra-item"><span class="infra-item-num">03</span><div><div class="infra-item-title">Regulatory Compliance Readiness</div><p class="infra-item-body">Structured for IFRA, GMP, ISO 9001, COSMOS pathway. Certification roadmap actively managed with audit-ready documentation.</p></div></div>
+        <div class="infra-item"><span class="infra-item-num">04</span><div><div class="infra-item-title">Export Infrastructure</div><p class="infra-item-body">MSDS, CoA, phytosanitary documentation. UN-compliant packaging, cold chain logistics. Direct export via Mumbai &amp; Chennai ports.</p></div></div>
+      </div>
+      <div class="cert-badges">
+        <span class="cert-badge">GMP Ready</span>
+        <span class="cert-badge">ISO 9001</span>
+        <span class="cert-badge">IFRA Aligned</span>
+        <span class="cert-badge">COSMOS-Ready</span>
+        <span class="cert-badge">Ph.Eur</span>
+      </div>
+    </div>
+  </div>
+  <div class="infra-grid" style="direction:rtl;">
+    <div class="infra-image-panel reveal" style="direction:ltr;">
+      <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&q=80" alt="Laboratory analysis" loading="lazy"/>
+      <div class="infra-image-overlay" style="background:linear-gradient(to left,transparent 40%,rgba(13,15,12,0.7) 100%);"></div>
+    </div>
+    <div class="infra-content-panel reveal reveal-delay-1" style="direction:ltr;">
+      <span class="section-label">R&amp;D Capability</span>
+      <h2 class="section-h2 section-h2-light" style="font-size:clamp(2rem,3.5vw,3.5rem);">Scientific<br/><em>Precision</em></h2>
+      <div class="infra-items">
+        <div class="infra-item"><span class="infra-item-num">05</span><div><div class="infra-item-title">In-House Analytical Laboratory</div><p class="infra-item-body">Complete characterisation capability. GC/MS profiling, optical rotation, refractive index. Results delivered with every shipment.</p></div></div>
+        <div class="infra-item"><span class="infra-item-num">06</span><div><div class="infra-item-title">Custom Fraction Development</div><p class="infra-item-body">In-house extraction flexibility enables specification-matching and custom fraction development in partnership with customer technical teams.</p></div></div>
+        <div class="infra-item"><span class="infra-item-num">07</span><div><div class="infra-item-title">Scalable Production Capacity</div><p class="infra-item-body">Farmer network expansion and extraction capacity scaling planned to meet long-term volume commitments from global enterprise partners.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="industries-bg"></div>
+  <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+    <div class="industries-header reveal">
+      <div>
+        <span class="section-label">Enterprise Segments</span>
+        <h2 class="section-h2">Industries<br/><em>We Supply</em></h2>
+      </div>
+      <p class="section-body" style="max-width:340px;text-align:right;">Exclusively serving enterprise buyers. Minimum order quantities apply.</p>
+    </div>
+    <div class="industry-cards">
+      <div class="industry-card reveal">
+        <div class="industry-card-bg" style="background-image:url('https://images.unsplash.com/photo-1592945403244-b3faa09e45dc?w=600&q=40');"></div>
+        <div class="industry-card-num">01</div>
+        <div class="industry-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="1"/><path d="M6 9C6 9 7 7 9 7C11 7 12 9 12 9" stroke="currentColor" stroke-width="1"/><circle cx="9" cy="9" r="2" stroke="currentColor" stroke-width="0.75"/></svg></div>
+        <div class="industry-card-title">Fine Fragrance<br/>Manufacturing</div>
+        <p class="industry-card-body">Absolutes and concretes for luxury Eaux de Parfum, Extrait, and niche fragrance creation. Unmatched M. Champaca olfactory character.</p>
+        <span class="industry-tag">Absolutes</span><span class="industry-tag">Concretes</span>
+      </div>
+      <div class="industry-card reveal reveal-delay-1">
+        <div class="industry-card-bg" style="background-image:url('https://images.unsplash.com/photo-1611080541609-b5a84f1a2ef5?w=600&q=40');"></div>
+        <div class="industry-card-num">02</div>
+        <div class="industry-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2L9 16M2 9L16 9" stroke="currentColor" stroke-width="1"/><circle cx="9" cy="9" r="5" stroke="currentColor" stroke-width="0.75"/></svg></div>
+        <div class="industry-card-title">Aromatherapy<br/>Brands</div>
+        <p class="industry-card-body">Hydrodistilled essential oils with documented GC/MS profiles. Consistent batch-to-batch performance for global wellness markets.</p>
+        <span class="industry-tag">Essential Oils</span><span class="industry-tag">GC/MS Cert.</span>
+      </div>
+      <div class="industry-card reveal reveal-delay-2">
+        <div class="industry-card-bg" style="background-image:url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&q=40');"></div>
+        <div class="industry-card-num">03</div>
+        <div class="industry-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="5" width="12" height="10" rx="1" stroke="currentColor" stroke-width="1"/><path d="M6 5V4a3 3 0 016 0v1" stroke="currentColor" stroke-width="1"/></svg></div>
+        <div class="industry-card-title">Pharmaceutical<br/>Companies</div>
+        <p class="industry-card-body">Supercritical CO₂ extracts with zero solvent residue. Batch documentation to ICH/Ph.Eur standards. Suitable for API sourcing.</p>
+        <span class="industry-tag">CO₂ Extracts</span><span class="industry-tag">Ph.Eur Spec.</span>
+      </div>
+      <div class="industry-card reveal reveal-delay-3">
+        <div class="industry-card-bg" style="background-image:url('https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=600&q=40');"></div>
+        <div class="industry-card-num">04</div>
+        <div class="industry-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3C6 3 4 5 4 8C4 12 9 15 9 15C9 15 14 12 14 8C14 5 12 3 9 3Z" stroke="currentColor" stroke-width="1" fill="none"/><circle cx="9" cy="9" r="2" fill="currentColor" opacity="0.4"/></svg></div>
+        <div class="industry-card-title">Nutraceutical<br/>Corporations</div>
+        <p class="industry-card-body">Clean-label botanical extracts for supplement formulation. Solvent-free CO₂ extracts supporting premium wellness claims and regulatory compliance.</p>
+        <span class="industry-tag">Nutra-Grade</span><span class="industry-tag">GRAS-Aligned</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact" style="position:relative;overflow:hidden;min-height:700px;display:flex;align-items:center;">
+  <div class="impact-image"></div>
+  <div class="impact-content">
+    <div class="impact-layout">
+      <div class="reveal">
+        <span class="section-label">Economic Infrastructure</span>
+        <div class="impact-quote">"A supply chain that creates <em>rural wealth</em> — not dependency."</div>
+        <p class="impact-body">Hanim Botanical's farmer partnership model is designed around multi-year agreements, agronomic support, and price certainty. This is not a social initiative — it is a supply chain architecture that aligns farmer incentive with product quality and consistency.</p>
+        <a href="#contact" class="btn-ghost" style="margin-top:36px;display:inline-block;">Learn About Partnerships</a>
+      </div>
+      <div class="impact-stats-grid reveal reveal-delay-2">
+        <div class="impact-stat">
+          <span class="impact-stat-num">110<span class="impact-stat-unit">ac</span></span>
+          <span class="impact-stat-label">Acres Operational</span>
+          <p class="impact-stat-body">Under direct agronomic management and standardised protocols.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat-num">100<span class="impact-stat-unit">%</span></span>
+          <span class="impact-stat-label">Buy-Back Guaranteed</span>
+          <p class="impact-stat-body">Contracted price agreements eliminating farmer market risk entirely.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat-num" style="font-size:2rem;line-height:1.2;">Free</span>
+          <span class="impact-stat-label">Sapling Distribution</span>
+          <p class="impact-stat-body">High-yield saplings and agronomic training provided to all partner farmers.</p>
+        </div>
+        <div class="impact-stat">
+          <span class="impact-stat-num" style="font-size:1.8rem;line-height:1.2;">Perennial</span>
+          <span class="impact-stat-label">Crop Conversion</span>
+          <p class="impact-stat-body">From seasonal crop dependence to year-round income stability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFFERENTIATORS -->
+<section id="differentiators">
+  <div style="max-width:1400px;margin:0 auto;">
+    <div class="diff-layout">
+      <div class="diff-sticky reveal">
+        <span class="section-label">Competitive Position</span>
+        <h2 class="section-h2" style="font-size:clamp(2.2rem,3.5vw,3.8rem);">Why<br/>Hanim<br/><em>Botanical</em></h2>
+        <p class="section-body" style="margin-top:24px;max-width:280px;">Six structural advantages that no conventional botanical supplier can replicate.</p>
+        <a href="#contact" class="btn-gold" style="margin-top:36px;display:inline-block;"><span>Start a Partnership</span></a>
+      </div>
+      <div class="diff-items reveal reveal-delay-1">
+        <div class="diff-item"><span class="diff-item-num">01</span><div><div class="diff-item-title">Exclusive Species Focus</div><p class="diff-item-body">No dilution across multiple botanicals. Hanim's entire organisation — from agronomy to extraction chemistry — is built around a single species. This depth of specialisation is unmatched globally.</p></div></div>
+        <div class="diff-item"><span class="diff-item-num">02</span><div><div class="diff-item-title">Full Supply Chain Control</div><p class="diff-item-body">From sapling genetics to export documentation, Hanim owns or directly manages every critical variable — eliminating quality risks inherent in broker-dependent supply chains.</p></div></div>
+        <div class="diff-item"><span class="diff-item-num">03</span><div><div class="diff-item-title">Medical-Grade Extraction</div><p class="diff-item-body">Supercritical CO₂ capability elevates output to pharmaceutical and nutraceutical specifications — markets underserved by conventional botanical suppliers at fragrance grade only.</p></div></div>
+        <div class="diff-item"><span class="diff-item-num">04</span><div><div class="diff-item-title">Traceable Ethical Sourcing</div><p class="diff-item-body">Every extract shipment backed by an unbroken traceability chain from farm to bottle. Verified farmer partnerships with documented economic terms — meeting ESG standards of global enterprise purchasers.</p></div></div>
+        <div class="diff-item"><span class="diff-item-num">05</span><div><div class="diff-item-title">Scalable Supply Capacity</div><p class="diff-item-body">Expansion infrastructure in development. Farmer network growth and extraction capacity scaling planned to meet long-term volume commitments from global enterprise partners.</p></div></div>
+        <div class="diff-item"><span class="diff-item-num">06</span><div><div class="diff-item-title">R&amp;D &amp; Custom Development</div><p class="diff-item-body">In-house analytical capability and extraction flexibility enable custom fraction development, specification-matching, and application development in partnership with customer technical teams.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="trust-item"><span class="trust-item-label">Standard</span><span class="trust-item-value">IFRA Aligned</span><span class="trust-item-sub">Fragrance industry</span></div>
+  <div class="trust-item"><span class="trust-item-label">Status</span><span class="trust-item-value">GMP Ready</span><span class="trust-item-sub">Pharma compliance</span></div>
+  <div class="trust-item"><span class="trust-item-label">Issued</span><span class="trust-item-value">CoA Per Batch</span><span class="trust-item-sub">Every production lot</span></div>
+  <div class="trust-item"><span class="trust-item-label">Export</span><span class="trust-item-value">Phytosanitary</span><span class="trust-item-sub">Certified documentation</span></div>
+  <div class="trust-item"><span class="trust-item-label">Chain</span><span class="trust-item-value">Farm to Bottle</span><span class="trust-item-sub">Full traceability</span></div>
+  <div class="trust-item"><span class="trust-item-label">Solvent</span><span class="trust-item-value">ICH Q3C</span><span class="trust-item-sub">Residue compliant</span></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div style="max-width:1400px;margin:0 auto;position:relative;z-index:2;">
+    <div class="contact-layout">
+      <div class="reveal">
+        <span class="section-label">Enterprise Enquiries</span>
+        <h2 class="section-h2 section-h2-light" style="font-size:clamp(2.2rem,3.5vw,3.8rem);margin-bottom:28px;">Begin a<br/><em>Global<br/>Partnership</em></h2>
+        <p class="section-body" style="color:rgba(245,240,232,0.45);max-width:360px;margin-bottom:40px;">We work with fragrance houses, pharmaceutical developers, and nutraceutical corporations at enterprise scale. Minimum order quantities apply.</p>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <span class="cta-type">Request Technical Data Sheet</span>
+          <span class="cta-type">Request Evaluation Samples</span>
+          <span class="cta-type">Schedule Facility Visit</span>
+          <span class="cta-type">Initiate Supply Agreement</span>
+          <span class="cta-type">R&amp;D Collaboration Enquiry</span>
+        </div>
+        <div style="margin-top:48px;padding-top:32px;border-top:1px solid rgba(201,168,76,0.12);">
+          <div style="font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(201,168,76,0.4);margin-bottom:10px;">Direct Contact</div>
+          <a href="mailto:enterprise@hanimbotanical.com" style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold-light);text-decoration:none;font-style:italic;">enterprise@hanimbotanical.com</a>
+          <p style="font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:300;color:rgba(245,240,232,0.3);margin-top:6px;">India Operations · Mon–Fri · IST</p>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1" style="border:1px solid rgba(201,168,76,0.12);padding:48px 44px;">
+        <div style="font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.28em;text-transform:uppercase;color:rgba(201,168,76,0.5);margin-bottom:36px;">Enterprise Enquiry Form</div>
+        <div style="display:flex;flex-direction:column;gap:28px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+            <div class="form-group"><label class="form-label">First Name</label><input type="text" class="contact-form-field" placeholder="Dr. Andrea"/></div>
+            <div class="form-group"><label class="form-label">Last Name</label><input type="text" class="contact-form-field" placeholder="Meyer"/></div>
+          </div>
+          <div class="form-group"><label class="form-label">Company / Organisation</label><input type="text" class="contact-form-field" placeholder="Fragrance House / Pharma Co."/></div>
+          <div class="form-group"><label class="form-label">Business Email</label><input type="email" class="contact-form-field" placeholder="name@company.com"/></div>
+          <div class="form-group"><label class="form-label">Enquiry Type</label>
+            <select class="contact-form-field"><option value="" disabled selected>Select purpose</option><option>Technical Data Request</option><option>Sample Request</option><option>Start a Partnership</option><option>Schedule Facility Visit</option><option>Supply Agreement</option><option>R&amp;D Collaboration</option></select>
+          </div>
+          <div class="form-group"><label class="form-label">Industry</label>
+            <select class="contact-form-field"><option value="" disabled selected>Your industry</option><option>Fine Fragrance / Perfumery</option><option>Aromatherapy / Wellness</option><option>Pharmaceutical</option><option>Nutraceutical / Supplements</option><option>Cosmetics / Personal Care</option></select>
+          </div>
+          <div class="form-group"><label class="form-label">Message</label><textarea class="contact-form-field" rows="3" placeholder="Describe your requirement, volume needs, or intended application." style="resize:none;"></textarea></div>
+          <button class="submit-btn"><span>Submit Enterprise Enquiry</span></button>
+          <p style="font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:300;color:rgba(245,240,232,0.2);text-align:center;line-height:1.6;">Response within 2 business days · Commercial confidentiality respected</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div style="max-width:1400px;margin:0 auto;">
+      <div class="footer-grid" style="margin-bottom:60px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <svg viewBox="0 0 36 36" fill="none" width="26" height="26"><circle cx="18" cy="18" r="17" stroke="#c9a84c" stroke-width="0.75" opacity="0.4"/><path d="M18 3C18 3 10 11 10 20C10 25.5 14 30 18 32C22 30 26 25.5 26 20C26 11 18 3 18 3Z" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="0.75"/></svg>
+            <div><div style="font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);font-weight:500;">Hanim Botanical Pvt. Ltd.</div><div style="font-family:'Jost',sans-serif;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.25);">Michelia Champaca · India</div></div>
+          </div>
+          <p style="font-family:'Jost',sans-serif;font-size:0.78rem;font-weight:300;color:rgba(245,240,232,0.3);line-height:1.75;max-width:260px;">India's only vertically integrated Michelia Champaca botanical manufacturer. Supplying global enterprise customers from farm to certified extract.</p>
+        </div>
+        <div>
+          <div class="footer-title">Navigation</div>
+          <a href="#model" class="footer-link">Manufacturing Model</a>
+          <a href="#process" class="footer-link">Extraction Technology</a>
+          <a href="#infrastructure" class="footer-link">Infrastructure</a>
+          <a href="#industries" class="footer-link">Industries Served</a>
+          <a href="#impact" class="footer-link">Farmer Impact</a>
+        </div>
+        <div>
+          <div class="footer-title">Enterprise</div>
+          <a href="#contact" class="footer-link">Request Technical Data</a>
+          <a href="#contact" class="footer-link">Request Samples</a>
+          <a href="#contact" class="footer-link">Start a Partnership</a>
+          <a href="#contact" class="footer-link">Facility Visit</a>
+        </div>
+        <div>
+          <div class="footer-title">Compliance</div>
+          <span class="footer-link" style="cursor:default;">GMP Ready</span>
+          <span class="footer-link" style="cursor:default;">IFRA Aligned</span>
+          <span class="footer-link" style="cursor:default;">ICH Q3C</span>
+          <span class="footer-link" style="cursor:default;">ISO 9001</span>
+          <span class="footer-link" style="cursor:default;">COSMOS-Ready</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2025 Hanim Botanical Pvt. Ltd. All rights reserved.</span>
+        <span class="footer-copy">Registered in India · Michelia Champaca · Soil to Oil</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<script>
+// CURSOR
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  dot.style.left = mouseX + 'px';
+  dot.style.top = mouseY + 'px';
+});
+(function animRing() {
+  ringX += (mouseX - ringX) * 0.12;
+  ringY += (mouseY - ringY) * 0.12;
+  ring.style.left = ringX + 'px';
+  ring.style.top = ringY + 'px';
+  requestAnimationFrame(animRing);
+})();
+document.querySelectorAll('a, button, .industry-card, .process-card, .infra-item, .diff-item, .pipeline-step').forEach(el => {
+  el.addEventListener('mouseenter', () => { ring.style.transform='translate(-50%,-50%) scale(2)'; ring.style.borderColor='rgba(201,168,76,0.3)'; dot.style.transform='translate(-50%,-50%) scale(0.5)'; });
+  el.addEventListener('mouseleave', () => { ring.style.transform='translate(-50%,-50%) scale(1)'; ring.style.borderColor='rgba(201,168,76,0.5)'; dot.style.transform='translate(-50%,-50%) scale(1)'; });
+});
+
+// NAV
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 60));
+
+// REVEAL
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// HERO PARALLAX
+window.addEventListener('scroll', () => {
+  const s = window.scrollY;
+  const bg = document.querySelector('.hero-bg');
+  if (bg && s < window.innerHeight) bg.style.transform = `scale(1.0) translateY(${s * 0.3}px)`;
+});
+
+// MOBILE
+if ('ontouchstart' in window) {
+  dot.style.display = 'none';
+  ring.style.display = 'none';
+  document.body.style.cursor = 'auto';
+}
+</script>
+</body>
+</html>
