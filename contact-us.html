@@ -1,0 +1,961 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Hanim Botanical Pvt. Ltd.</title>
+    <meta
+      name="description"
+      content="Partner with purity. Partner with purpose. Connect with Hanim Botanical for bulk supply, private label opportunities, or long-term sourcing partnerships."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Jost:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              botanical: "#1A3C34",
+              gold: "#D4AF37",
+              "gold-light": "#F3E5AB",
+              ivory: "#F9F7F2",
+              charcoal: "#1A1A1A",
+              slate: "#2C2C2C",
+            },
+            fontFamily: {
+              jost: ["Jost", "sans-serif"],
+              playfair: ["Playfair Display", "serif"],
+              syne: ["Syne", "sans-serif"],
+              instrument: ["Instrument Serif", "serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        cursor: none;
+      }
+      .cursor-dot {
+        width: 8px;
+        height: 8px;
+        background: #d4af37;
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s;
+      }
+      .cursor-ring {
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 50%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: all 0.18s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      nav.solid {
+        background-color: rgba(26, 60, 52, 0.97);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+      }
+      .reveal {
+        opacity: 0;
+        transform: translateY(50px);
+        transition:
+          opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+          transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal-delay-1 {
+        transition-delay: 0.12s;
+      }
+      .reveal-delay-2 {
+        transition-delay: 0.24s;
+      }
+      .reveal-delay-3 {
+        transition-delay: 0.36s;
+      }
+      @media (hover: none) {
+        .cursor-dot,
+        .cursor-ring {
+          display: none;
+        }
+        body {
+          cursor: auto;
+        }
+      }
+      .form-input,
+      .form-textarea,
+      .form-select {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(26, 60, 52, 0.2);
+        color: #1a1a1a;
+        font-family: "Jost", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 300;
+        padding: 14px 0;
+        outline: none;
+        transition: border-color 0.3s;
+        width: 100%;
+      }
+      .form-input::placeholder,
+      .form-textarea::placeholder {
+        color: rgba(26, 60, 52, 0.35);
+      }
+      .form-input:focus,
+      .form-textarea:focus,
+      .form-select:focus {
+        border-color: #d4af37;
+      }
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      /* Mobile menu open state */
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+
+      body.mobile-menu-open #mobileNav {
+        pointer-events: auto;
+      }
+
+      body.mobile-menu-open #mobileNavOverlay {
+        opacity: 1;
+      }
+
+      body.mobile-menu-open #mobileNavPanel {
+        transform: translateX(0);
+      }
+
+      /* Hamburger animation */
+      body.mobile-menu-open .mobile-menu-line:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+
+      body.mobile-menu-open .mobile-menu-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      body.mobile-menu-open .mobile-menu-line:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-ivory text-charcoal font-jost antialiased selection:bg-gold selection:text-botanical"
+  >
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav
+      id="mainNav"
+      class="fixed top-0 left-0 right-0 z-50 h-20 px-7 lg:px-[60px] flex items-center justify-between transition-all duration-500"
+    >
+      <!-- LOGO -->
+      <a
+        href="index.html"
+        class="flex items-center gap-3.5 no-underline group relative z-50"
+      >
+        <svg
+          viewBox="0 0 36 36"
+          fill="none"
+          width="36"
+          height="36"
+          class="transition-transform duration-500 group-hover:rotate-180"
+        >
+          <circle
+            cx="18"
+            cy="18"
+            r="17"
+            stroke="#D4AF37"
+            stroke-width="0.75"
+            opacity="0.5"
+          />
+          <path
+            d="M18 3C18 3 10 11 10 20C10 25.5 14 30 18 32C22 30 26 25.5 26 20C26 11 18 3 18 3Z"
+            fill="rgba(212, 175, 55, 0.1)"
+            stroke="#D4AF37"
+            stroke-width="0.75"
+          />
+          <line
+            x1="18"
+            y1="3"
+            x2="18"
+            y2="32"
+            stroke="#D4AF37"
+            stroke-width="0.5"
+            opacity="0.5"
+          />
+          <ellipse
+            cx="18"
+            cy="20"
+            rx="7"
+            ry="4.5"
+            stroke="rgba(212, 175, 55, 0.6)"
+            stroke-width="0.75"
+            fill="none"
+          />
+          <circle cx="18" cy="11" r="1.5" fill="#D4AF37" opacity="0.7" />
+        </svg>
+        <div>
+          <span
+            class="block font-playfair text-[1.05rem] text-ivory tracking-wide leading-[1.2]"
+            >Hanim Botanical</span
+          >
+          <span
+            class="block font-jost text-[0.6rem] text-ivory/40 tracking-widest uppercase mt-px"
+            >Pvt. Ltd. · India</span
+          >
+        </div>
+      </a>
+
+      <!-- DESKTOP MENU -->
+      <ul class="hidden lg:flex items-center gap-9 list-none">
+        <li>
+          <a
+            href="index.html"
+            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="about-us.html"
+            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-gold-light no-underline transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-gold"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="extraction-technologies.html"
+            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+            >Technologies</a
+          >
+        </li>
+        <li>
+          <a
+            href="contact-us.html"
+            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
+            >Contact</a
+          >
+        </li>
+      </ul>
+
+      <!-- DESKTOP CTA -->
+
+      <a
+        href="contact-us.html"
+        class="hidden lg:inline-block font-jost text-[0.68rem] font-medium tracking-[0.2em] uppercase text-botanical bg-gold border-none py-[11px] px-[26px] no-underline transition-all duration-300 hover:bg-gold-light"
+        >Get in Touch</a
+      >
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        id="mobileMenuBtn"
+        class="lg:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+        aria-label="Toggle Menu"
+      >
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+      </button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="min-h-[60vh] relative flex items-end overflow-hidden pt-20">
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551781019-b4b2b3e14b89?w=1800&q=80')] bg-cover bg-center"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-botanical/95 via-botanical/75 to-botanical/30"
+      ></div>
+      <div
+        class="relative z-10 w-full px-7 lg:px-20 pb-20 pt-32 max-w-[1400px] mx-auto"
+      >
+        <div class="inline-flex items-center gap-4 mb-6">
+          <div class="w-12 h-px bg-gold"></div>
+          <span
+            class="font-jost text-[0.68rem] font-normal tracking-[0.3em] uppercase text-gold"
+            >Let's Collaborate</span
+          >
+        </div>
+        <h1
+          class="font-playfair text-[2.5rem] lg:text-[4.5rem] font-bold leading-[0.95] text-ivory mb-6 tracking-tight"
+        >
+          Let's Create<br />
+          <em class="italic text-gold-light font-normal">Something Rare</em
+          ><br />
+          Together
+        </h1>
+        <p
+          class="font-jost text-[1.05rem] font-light text-ivory/70 max-w-[680px] leading-[1.75]"
+        >
+          Whether you are a luxury fragrance house, global aromatherapy brand,
+          or pharmaceutical company — we would be honored to collaborate.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT INFO + FORM -->
+    <section class="py-24 lg:py-32 bg-ivory">
+      <div class="max-w-[1400px] mx-auto px-7 lg:px-20">
+        <div class="grid lg:grid-cols-5 gap-16 lg:gap-20">
+          <!-- LEFT: INFO -->
+          <div class="lg:col-span-2 reveal">
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="w-8 h-px bg-gold"></div>
+              <span
+                class="font-jost text-[0.58rem] font-medium tracking-[0.32em] uppercase text-gold"
+                >Get in Touch</span
+              >
+            </div>
+            <h2
+              class="font-playfair text-[2rem] lg:text-[3rem] font-bold leading-[1.05] text-botanical mb-6 tracking-tight"
+            >
+              Partner With<br />
+              <em class="italic font-normal text-gold">Purity.</em><br />
+              Partner With<br />
+              <em class="italic font-normal text-gold">Purpose.</em>
+            </h2>
+            <p
+              class="font-jost text-[0.95rem] font-light text-slate/70 leading-[1.85] mb-10"
+            >
+              Connect with us to explore bulk supply, private label
+              opportunities, or long-term sourcing partnerships.
+            </p>
+
+            <!-- CONTACT DETAILS -->
+            <div class="space-y-6 mb-10">
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center shrink-0 mt-1"
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M15 12.5C15 12.5 13.5 11 12.5 11C11.5 11 11 12 10 12C9 12 7.5 10.5 6.5 9.5C5.5 8.5 4 7 4 6C4 5 5 4.5 5 3.5C5 2.5 3.5 1 3.5 1C3.5 1 1 1 1 3.5C1 8 10 17 14.5 17C17 17 17 14.5 17 14.5C17 14.5 15 12.5 15 12.5Z"
+                      stroke="#1A3C34"
+                      stroke-width="0.8"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="font-syne text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-gold mb-1"
+                  >
+                    Phone
+                  </div>
+                  <a
+                    href="tel:+919876543210"
+                    class="font-jost text-[0.95rem] text-botanical hover:text-gold transition-colors no-underline"
+                    >+91 98765 43210</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center shrink-0 mt-1"
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <rect
+                      x="2"
+                      y="4"
+                      width="14"
+                      height="10"
+                      rx="1"
+                      stroke="#1A3C34"
+                      stroke-width="0.8"
+                    />
+                    <path
+                      d="M2 5L9 10L16 5"
+                      stroke="#1A3C34"
+                      stroke-width="0.8"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="font-syne text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-gold mb-1"
+                  >
+                    Email
+                  </div>
+                  <a
+                    href="mailto:contact@hanimbotanical.com"
+                    class="font-jost text-[0.95rem] text-botanical hover:text-gold transition-colors no-underline"
+                    >contact@hanimbotanical.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center shrink-0 mt-1"
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path
+                      d="M9 9C10.1046 9 11 8.10457 11 7C11 5.89543 10.1046 5 9 5C7.89543 5 7 5.89543 7 7C7 8.10457 7.89543 9 9 9Z"
+                      stroke="#1A3C34"
+                      stroke-width="0.8"
+                    />
+                    <path
+                      d="M9 2C6.23858 2 4 4.23858 4 7C4 10.5 9 16 9 16C9 16 14 10.5 14 7C14 4.23858 11.7614 2 9 2Z"
+                      stroke="#1A3C34"
+                      stroke-width="0.8"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <div
+                    class="font-syne text-[0.7rem] font-semibold tracking-[0.2em] uppercase text-gold mb-1"
+                  >
+                    Location
+                  </div>
+                  <p
+                    class="font-jost text-[0.95rem] text-botanical leading-[1.6]"
+                  >
+                    Maharashtra, India<br />Michelia Champaca Cultivation Zone
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ENQUIRY TYPES -->
+            <div class="border-t border-botanical/10 pt-8">
+              <div
+                class="font-syne text-[0.7rem] font-semibold tracking-[0.22em] uppercase text-botanical/50 mb-4"
+              >
+                We Support
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-px bg-gold"></div>
+                  <span class="font-jost text-[0.85rem] text-slate/70"
+                    >Bulk Supply Partnerships</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-px bg-gold"></div>
+                  <span class="font-jost text-[0.85rem] text-slate/70"
+                    >Private Label Manufacturing</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-px bg-gold"></div>
+                  <span class="font-jost text-[0.85rem] text-slate/70"
+                    >Technical Data Requests</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-px bg-gold"></div>
+                  <span class="font-jost text-[0.85rem] text-slate/70"
+                    >Sample Requests</span
+                  >
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-5 h-px bg-gold"></div>
+                  <span class="font-jost text-[0.85rem] text-slate/70"
+                    >Facility Visits</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RIGHT: FORM -->
+          <div class="lg:col-span-3 reveal reveal-delay-1">
+            <div
+              id="contact-form"
+              class="bg-botanical p-8 lg:p-12 relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1000&q=40')] bg-cover opacity-[0.04]"
+              ></div>
+              <div class="relative z-10">
+                <div class="mb-8">
+                  <div
+                    class="font-jost text-[0.6rem] font-medium tracking-[0.3em] uppercase text-gold/60 mb-3"
+                  >
+                    Enterprise Enquiry Form
+                  </div>
+                  <h3
+                    class="font-playfair text-[1.8rem] lg:text-[2.2rem] font-bold text-ivory leading-[1.1] tracking-tight"
+                  >
+                    Start Your<br />
+                    <em class="italic font-normal text-gold-light"
+                      >Partnership Journey</em
+                    >
+                  </h3>
+                </div>
+
+                <form class="space-y-6" id="contactForm">
+                  <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                        >First Name *</label
+                      >
+                      <input
+                        type="text"
+                        name="firstName"
+                        required
+                        class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors placeholder:text-ivory/25"
+                        placeholder="Dr. Andrea"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                        >Last Name *</label
+                      >
+                      <input
+                        type="text"
+                        name="lastName"
+                        required
+                        class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors placeholder:text-ivory/25"
+                        placeholder="Meyer"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Company / Organisation *</label
+                    >
+                    <input
+                      type="text"
+                      name="company"
+                      required
+                      class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors placeholder:text-ivory/25"
+                      placeholder="Fragrance House / Pharma Co."
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Business Email *</label
+                    >
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors placeholder:text-ivory/25"
+                      placeholder="name@company.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      name="phone"
+                      class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors placeholder:text-ivory/25"
+                      placeholder="+91 98765 43210"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Enquiry Type *</label
+                    >
+                    <select
+                      name="enquiryType"
+                      required
+                      class="w-full bg-botanical border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors appearance-none"
+                    >
+                      <option value="" class="bg-botanical">
+                        Select purpose
+                      </option>
+                      <option value="technical-data" class="bg-botanical">
+                        Technical Data Request
+                      </option>
+                      <option value="samples" class="bg-botanical">
+                        Sample Request
+                      </option>
+                      <option value="partnership" class="bg-botanical">
+                        Partnership Enquiry
+                      </option>
+                      <option value="bulk-supply" class="bg-botanical">
+                        Bulk Supply Agreement
+                      </option>
+                      <option value="private-label" class="bg-botanical">
+                        Private Label Manufacturing
+                      </option>
+                      <option value="facility-visit" class="bg-botanical">
+                        Facility Visit
+                      </option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Industry *</label
+                    >
+                    <select
+                      name="industry"
+                      required
+                      class="w-full bg-botanical border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors appearance-none"
+                    >
+                      <option value="" class="bg-botanical">
+                        Your industry
+                      </option>
+                      <option value="fragrance" class="bg-botanical">
+                        Fine Fragrance / Perfumery
+                      </option>
+                      <option value="aromatherapy" class="bg-botanical">
+                        Aromatherapy / Wellness
+                      </option>
+                      <option value="pharmaceutical" class="bg-botanical">
+                        Pharmaceutical
+                      </option>
+                      <option value="nutraceutical" class="bg-botanical">
+                        Nutraceutical / Supplements
+                      </option>
+                      <option value="cosmetics" class="bg-botanical">
+                        Cosmetics / Personal Care
+                      </option>
+                      <option value="other" class="bg-botanical">Other</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      class="block font-jost text-[0.62rem] font-medium tracking-[0.22em] uppercase text-gold/50 mb-2"
+                      >Message *</label
+                    >
+                    <textarea
+                      name="message"
+                      required
+                      rows="4"
+                      class="w-full bg-transparent border-0 border-b border-ivory/20 text-ivory font-jost text-[0.95rem] font-light py-3 outline-none focus:border-gold transition-colors resize-none placeholder:text-ivory/25"
+                      placeholder="Describe your requirement, volume needs, or intended application..."
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="group relative w-full font-jost text-[0.72rem] font-semibold tracking-[0.25em] uppercase bg-gold text-botanical py-4 px-8 overflow-hidden transition-all duration-300 mt-8"
+                  >
+                    <div
+                      class="absolute inset-0 bg-gold-light translate-x-[-101%] transition-transform duration-400 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:translate-x-0"
+                    ></div>
+                    <span class="relative z-10">Submit Enterprise Enquiry</span>
+                  </button>
+
+                  <p
+                    class="font-jost text-[0.68rem] font-light text-ivory/30 text-center leading-[1.6] mt-4"
+                  >
+                    Response within 2 business days · Commercial confidentiality
+                    respected
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="py-20 lg:py-24 bg-botanical relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1625938144755-652e08e359b7?w=1400&q=50')] bg-cover bg-center opacity-[0.08]"
+      ></div>
+      <div
+        class="max-w-[1200px] mx-auto px-7 lg:px-20 text-center relative z-10 reveal"
+      >
+        <div class="inline-flex items-center gap-3 mb-6 justify-center">
+          <div class="w-8 h-px bg-gold"></div>
+          <span
+            class="font-jost text-[0.58rem] font-medium tracking-[0.32em] uppercase text-gold"
+            >Integrated Soil-to-Oil Manufacturing</span
+          >
+          <div class="w-8 h-px bg-gold"></div>
+        </div>
+        <h2
+          class="font-playfair text-[2rem] lg:text-[3rem] font-bold leading-[1.15] text-ivory mb-6 tracking-tight max-w-[800px] mx-auto"
+        >
+          Hanim Botanical Pvt. Ltd.<br />
+          <em class="italic text-gold-light font-normal"
+            >Michelia Champaca Specialists</em
+          >
+        </h2>
+        <p
+          class="font-jost text-[1rem] font-light text-ivory/60 leading-[1.85] max-w-[640px] mx-auto mb-8"
+        >
+          We specialize exclusively in Michelia Champaca extracts, serving the
+          world's most demanding industries with full traceability, batch
+          consistency, and global quality standards.
+        </p>
+        <div class="flex flex-wrap gap-4 justify-center items-center">
+          <a
+            href="about-us.html"
+            class="group inline-block font-jost text-[0.68rem] font-normal tracking-[0.22em] uppercase bg-transparent text-ivory/75 py-3 px-8 border border-ivory/25 transition-all duration-300 no-underline hover:border-gold hover:text-gold-light"
+            >Learn Our Story</a
+          >
+          <a
+            href="extraction-technologies.html"
+            class="group inline-block font-jost text-[0.68rem] font-normal tracking-[0.22em] uppercase bg-transparent text-ivory/75 py-3 px-8 border border-ivory/25 transition-all duration-300 no-underline hover:border-gold hover:text-gold-light"
+            >View Technologies</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-[#0e1e18] border-t border-gold/10 py-16 lg:py-20 px-7 lg:px-20"
+    >
+      <div class="max-w-[1400px] mx-auto">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16"
+        >
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <svg viewBox="0 0 36 36" fill="none" width="26" height="26">
+                <circle
+                  cx="18"
+                  cy="18"
+                  r="17"
+                  stroke="#D4AF37"
+                  stroke-width="0.75"
+                  opacity="0.4"
+                />
+                <path
+                  d="M18 3C18 3 10 11 10 20C10 25.5 14 30 18 32C22 30 26 25.5 26 20C26 11 18 3 18 3Z"
+                  fill="rgba(212, 175, 55, 0.08)"
+                  stroke="#D4AF37"
+                  stroke-width="0.75"
+                />
+              </svg>
+              <div>
+                <div class="font-playfair text-[1rem] text-ivory font-medium">
+                  Hanim Botanical Pvt. Ltd.
+                </div>
+                <div
+                  class="font-jost text-[0.55rem] tracking-[0.2em] uppercase text-ivory/25"
+                >
+                  Michelia Champaca · India
+                </div>
+              </div>
+            </div>
+            <p
+              class="font-jost text-[0.78rem] font-light text-ivory/30 leading-[1.75] max-w-[260px]"
+            >
+              India's only vertically integrated Michelia Champaca botanical
+              manufacturer.
+            </p>
+          </div>
+          <div>
+            <div
+              class="font-jost text-[0.58rem] font-semibold tracking-[0.25em] uppercase text-gold/45 mb-5"
+            >
+              Navigation
+            </div>
+            <a
+              href="index.html"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >Home</a
+            >
+            <a
+              href="about-us.html"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >About Us</a
+            >
+            <a
+              href="extraction-technologies.html"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >Technologies</a
+            >
+            <a
+              href="contact-us.html"
+              class="block font-jost text-[0.8rem] font-light text-gold-light no-underline py-[5px] tracking-wide"
+              >Contact</a
+            >
+          </div>
+          <div>
+            <div
+              class="font-jost text-[0.58rem] font-semibold tracking-[0.25em] uppercase text-gold/45 mb-5"
+            >
+              Enterprise
+            </div>
+            <a
+              href="#contact-form"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >Request Technical Data</a
+            >
+            <a
+              href="#contact-form"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >Request Samples</a
+            >
+            <a
+              href="#contact-form"
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 no-underline py-[5px] transition-colors duration-300 tracking-wide hover:text-gold-light"
+              >Partnership</a
+            >
+          </div>
+          <div>
+            <div
+              class="font-jost text-[0.58rem] font-semibold tracking-[0.25em] uppercase text-gold/45 mb-5"
+            >
+              Compliance
+            </div>
+            <span
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 py-[5px] tracking-wide cursor-default"
+              >GMP Ready</span
+            >
+            <span
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 py-[5px] tracking-wide cursor-default"
+              >IFRA Aligned</span
+            >
+            <span
+              class="block font-jost text-[0.8rem] font-light text-ivory/35 py-[5px] tracking-wide cursor-default"
+              >ISO 9001</span
+            >
+          </div>
+        </div>
+        <div
+          class="border-t border-white/5 pt-7 flex flex-col sm:flex-row justify-between items-center gap-4"
+        >
+          <span
+            class="font-jost text-[0.68rem] font-light text-ivory/20 tracking-[0.08em]"
+            >© 2025 Hanim Botanical Pvt. Ltd. All rights reserved.</span
+          >
+          <span
+            class="font-jost text-[0.68rem] font-light text-ivory/20 tracking-[0.08em]"
+            >Registered in India · Michelia Champaca</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const dot = document.getElementById("cursorDot");
+      const ring = document.getElementById("cursorRing");
+      let mouseX = 0,
+        mouseY = 0,
+        ringX = 0,
+        ringY = 0;
+      document.addEventListener("mousemove", (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        dot.style.left = mouseX + "px";
+        dot.style.top = mouseY + "px";
+      });
+      (function animRing() {
+        ringX += (mouseX - ringX) * 0.12;
+        ringY += (mouseY - ringY) * 0.12;
+        ring.style.left = ringX + "px";
+        ring.style.top = ringY + "px";
+        requestAnimationFrame(animRing);
+      })();
+      document
+        .querySelectorAll("a, button, input, textarea, select")
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            ring.style.transform = "translate(-50%,-50%) scale(2)";
+            ring.style.borderColor = "rgba(212, 175, 55, 0.3)";
+            dot.style.transform = "translate(-50%,-50%) scale(0.5)";
+          });
+          el.addEventListener("mouseleave", () => {
+            ring.style.transform = "translate(-50%,-50%) scale(1)";
+            ring.style.borderColor = "rgba(212, 175, 55, 0.5)";
+            dot.style.transform = "translate(-50%,-50%) scale(1)";
+          });
+        });
+      const nav = document.getElementById("mainNav");
+      window.addEventListener("scroll", () => {
+        nav.classList.toggle("solid", window.scrollY > 60);
+      });
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("visible");
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -60px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+
+      // Form submission handling
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          alert(
+            "Thank you for your enquiry! We will respond within 2 business days.",
+          );
+          this.reset();
+        });
+    </script>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      // Open/close menu
+      mobileMenuBtn.addEventListener("click", () => {
+        document.body.classList.toggle("mobile-menu-open");
+      });
+
+      // Close menu when clicking overlay
+      mobileNavOverlay.addEventListener("click", () => {
+        document.body.classList.remove("mobile-menu-open");
+      });
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("mobile-menu-open");
+        });
+      });
+
+      // Close menu on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          document.body.classList.contains("mobile-menu-open")
+        ) {
+          document.body.classList.remove("mobile-menu-open");
+        }
+      });
+    </script>
+  </body>
+</html>

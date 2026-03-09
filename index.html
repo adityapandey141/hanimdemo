@@ -160,6 +160,36 @@
           cursor: auto;
         }
       }
+
+      /* Mobile menu open state */
+      body.mobile-menu-open {
+        overflow: hidden;
+      }
+
+      body.mobile-menu-open #mobileNav {
+        pointer-events: auto;
+      }
+
+      body.mobile-menu-open #mobileNavOverlay {
+        opacity: 1;
+      }
+
+      body.mobile-menu-open #mobileNavPanel {
+        transform: translateX(0);
+      }
+
+      /* Hamburger animation */
+      body.mobile-menu-open .mobile-menu-line:nth-child(1) {
+        transform: rotate(45deg) translateY(8px);
+      }
+
+      body.mobile-menu-open .mobile-menu-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      body.mobile-menu-open .mobile-menu-line:nth-child(3) {
+        transform: rotate(-45deg) translateY(-8px);
+      }
     </style>
   </head>
   <body
@@ -168,11 +198,16 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-ring" id="cursorRing"></div>
     <!-- NAV -->
+    <!-- NAV -->
     <nav
       id="mainNav"
       class="fixed top-0 left-0 right-0 z-50 h-20 px-7 lg:px-[60px] flex items-center justify-between transition-all duration-500"
     >
-      <a href="#" class="nav-logo flex items-center gap-3.5 no-underline group">
+      <!-- LOGO -->
+      <a
+        href="index.html"
+        class="flex items-center gap-3.5 no-underline group relative z-50"
+      >
         <svg
           viewBox="0 0 36 36"
           fill="none"
@@ -225,63 +260,224 @@
           >
         </div>
       </a>
+
+      <!-- DESKTOP MENU -->
       <ul class="hidden lg:flex items-center gap-9 list-none">
         <li>
           <a
-            href="#model"
-            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >Model</a
+            href="index.html"
+            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-gold-light no-underline transition-colors duration-300 relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-[1px] after:bg-gold"
+            >Home</a
           >
         </li>
         <li>
           <a
-            href="#process"
+            href="about-us.html"
             class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >Technology</a
+            >About</a
           >
         </li>
         <li>
           <a
-            href="#infrastructure"
+            href="extraction-technologies.html"
             class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >Infrastructure</a
+            >Technologies</a
           >
         </li>
         <li>
           <a
-            href="#industries"
+            href="contact-us.html"
             class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >Industries</a
-          >
-        </li>
-        <li>
-          <a
-            href="#impact"
-            class="font-jost text-[0.72rem] font-normal tracking-[0.2em] uppercase text-ivory/55 no-underline transition-colors duration-300 relative hover:text-gold-light after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-[1px] after:bg-gold after:transition-all after:duration-300 hover:after:w-full"
-            >Impact</a
+            >Contact</a
           >
         </li>
       </ul>
+
+      <!-- DESKTOP CTA -->
+
       <a
-        href="#contact"
-        class="font-jost text-[0.68rem] font-medium tracking-[0.2em] uppercase text-botanical bg-gold border-none py-[11px] px-[26px] no-underline transition-all duration-300 hover:bg-gold-light"
-        >Request Samples</a
+        href="contact-us.html"
+        class="hidden lg:inline-block font-jost text-[0.68rem] font-medium tracking-[0.2em] uppercase text-botanical bg-gold border-none py-[11px] px-[26px] no-underline transition-all duration-300 hover:bg-gold-light"
+        >Get in Touch</a
       >
+
+      <!-- MOBILE MENU BUTTON -->
+      <button
+        id="mobileMenuBtn"
+        class="lg:hidden relative z-50 w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
+        aria-label="Toggle Menu"
+      >
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+        <span
+          class="mobile-menu-line w-6 h-0.5 bg-gold transition-all duration-300"
+        ></span>
+      </button>
     </nav>
+
+    <!-- MOBILE SIDE NAV -->
+    <div
+      id="mobileNav"
+      class="fixed inset-0 z-40 lg:hidden pointer-events-none"
+    >
+      <!-- OVERLAY -->
+      <div
+        id="mobileNavOverlay"
+        class="absolute inset-0 bg-botanical/95 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+      ></div>
+
+      <!-- SIDE PANEL -->
+      <div
+        id="mobileNavPanel"
+        class="absolute top-0 right-0 h-full w-[85vw] max-w-[400px] bg-botanical border-l border-gold/20 transform translate-x-full transition-transform duration-300 overflow-y-auto"
+      >
+        <!-- MOBILE NAV CONTENT -->
+        <div class="p-8 pt-24">
+          <!-- LOGO IN MOBILE NAV -->
+          <div
+            class="flex items-center gap-3.5 mb-12 pb-8 border-b border-gold/20"
+          >
+            <svg viewBox="0 0 36 36" fill="none" width="32" height="32">
+              <circle
+                cx="18"
+                cy="18"
+                r="17"
+                stroke="#D4AF37"
+                stroke-width="0.75"
+                opacity="0.5"
+              />
+              <path
+                d="M18 3C18 3 10 11 10 20C10 25.5 14 30 18 32C22 30 26 25.5 26 20C26 11 18 3 18 3Z"
+                fill="rgba(212, 175, 55, 0.1)"
+                stroke="#D4AF37"
+                stroke-width="0.75"
+              />
+              <line
+                x1="18"
+                y1="3"
+                x2="18"
+                y2="32"
+                stroke="#D4AF37"
+                stroke-width="0.5"
+                opacity="0.5"
+              />
+              <ellipse
+                cx="18"
+                cy="20"
+                rx="7"
+                ry="4.5"
+                stroke="rgba(212, 175, 55, 0.6)"
+                stroke-width="0.75"
+                fill="none"
+              />
+              <circle cx="18" cy="11" r="1.5" fill="#D4AF37" opacity="0.7" />
+            </svg>
+            <div>
+              <span
+                class="block font-playfair text-[1rem] text-ivory tracking-wide leading-[1.2]"
+                >Hanim Botanical</span
+              >
+              <span
+                class="block font-jost text-[0.58rem] text-ivory/40 tracking-widest uppercase mt-px"
+                >Pvt. Ltd. · India</span
+              >
+            </div>
+          </div>
+
+          <!-- MOBILE MENU LINKS -->
+          <nav class="flex flex-col gap-6 mb-10">
+            <a
+              href="index.html"
+              class="mobile-nav-link font-jost text-[0.9rem] font-normal tracking-[0.15em] uppercase text-ivory/70 no-underline transition-all duration-300 hover:text-gold-light hover:translate-x-2 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-px bg-gold/40 transition-all duration-300"
+              ></span>
+              Home
+            </a>
+
+            <a
+              href="about-us.html"
+              class="mobile-nav-link font-jost text-[0.9rem] font-normal tracking-[0.15em] uppercase text-gold-light no-underline transition-all duration-300 hover:translate-x-2 flex items-center gap-3"
+            >
+              <span class="w-8 h-px bg-gold transition-all duration-300"></span>
+              About
+            </a>
+
+            <a
+              href="extraction-technologies.html"
+              class="mobile-nav-link font-jost text-[0.9rem] font-normal tracking-[0.15em] uppercase text-ivory/70 no-underline transition-all duration-300 hover:text-gold-light hover:translate-x-2 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-px bg-gold/40 transition-all duration-300"
+              ></span>
+              Technologies
+            </a>
+
+            <a
+              href="contact-us.html"
+              class="mobile-nav-link font-jost text-[0.9rem] font-normal tracking-[0.15em] uppercase text-ivory/70 no-underline transition-all duration-300 hover:text-gold-light hover:translate-x-2 flex items-center gap-3"
+            >
+              <span
+                class="w-8 h-px bg-gold/40 transition-all duration-300"
+              ></span>
+              Contact
+            </a>
+          </nav>
+
+          <!-- MOBILE CTA BUTTON -->
+
+          <a
+            href="contact-us.html"
+            class="block w-full text-center font-jost text-[0.7rem] font-medium tracking-[0.22em] uppercase text-botanical bg-gold py-4 px-6 no-underline transition-all duration-300 hover:bg-gold-light"
+            >Get in Touch</a
+          >
+
+          <!-- MOBILE NAV FOOTER -->
+          <div class="mt-12 pt-8 border-t border-gold/20">
+            <p class="font-jost text-[0.7rem] text-ivory/30 leading-relaxed">
+              Integrated Soil-to-Oil Manufacturing<br />
+              Michelia Champaca Specialists
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- HERO -->
     <section
       id="hero"
       class="h-screen min-h-[700px] relative flex items-end overflow-hidden"
     >
+      <!-- VIDEO BACKGROUND -->
+      <div class="absolute inset-0 overflow-hidden">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          poster="https://images.unsplash.com/photo-1625938144755-652e08e359b7?w=1800&q=85"
+          class="absolute min-w-full min-h-full w-auto h-auto top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 object-cover"
+        >
+          <source src="bg.mp4" type="video/mp4" />
+          <source src="bg.webm" type="video/webm" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- DARK OVERLAYS -->
       <div
-        class="hero-bg absolute inset-0 bg-[url('https://images.unsplash.com/photo-1508739773434-c26b3d09e071?w=1800&q=85')] bg-cover bg-[center_40%] animate-hero-zoom"
-      ></div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-botanical/95 via-botanical/70 to-botanical/15"
+        class="absolute inset-0 bg-gradient-to-t from-botanical/95 via-botanical/80 to-botanical/80"
       ></div>
       <div
         class="absolute inset-0 bg-gradient-to-r from-botanical/50 to-transparent via-transparent"
       ></div>
+
+      <!-- CONTENT -->
       <div
         class="relative z-10 w-full px-7 lg:px-20 pb-[100px] lg:pb-[60px] max-w-[1400px] mx-auto"
       >
@@ -322,6 +518,7 @@
             ></div>
             <span class="relative z-10">Request Technical Data</span>
           </a>
+
           <a
             href="#model"
             class="group inline-block font-jost text-[0.68rem] font-normal tracking-[0.22em] uppercase bg-transparent text-ivory/75 py-4 px-9 border border-ivory/25 transition-all duration-300 no-underline hover:border-gold hover:text-gold-light"
@@ -329,6 +526,8 @@
           >
         </div>
       </div>
+
+      <!-- RIGHT STATS (Desktop Only) -->
       <div
         class="hidden lg:flex flex-col gap-7 absolute right-20 bottom-[100px] z-10 opacity-0 animate-fade-in-stats"
       >
@@ -363,6 +562,8 @@
           >
         </div>
       </div>
+
+      <!-- SCROLL INDICATOR -->
       <div
         class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-0 animate-fade-in-scroll"
       >
@@ -375,6 +576,7 @@
         ></div>
       </div>
     </section>
+
     <!-- MARQUEE -->
     <div class="bg-botanical border-y border-gold/15 py-[18px] overflow-hidden">
       <div class="flex whitespace-nowrap animate-marquee">
@@ -2287,6 +2489,40 @@
         ring.style.display = "none";
         document.body.style.cursor = "auto";
       }
+    </script>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileNav = document.getElementById("mobileNav");
+      const mobileNavOverlay = document.getElementById("mobileNavOverlay");
+      const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+      // Open/close menu
+      mobileMenuBtn.addEventListener("click", () => {
+        document.body.classList.toggle("mobile-menu-open");
+      });
+
+      // Close menu when clicking overlay
+      mobileNavOverlay.addEventListener("click", () => {
+        document.body.classList.remove("mobile-menu-open");
+      });
+
+      // Close menu when clicking a link
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          document.body.classList.remove("mobile-menu-open");
+        });
+      });
+
+      // Close menu on ESC key
+      document.addEventListener("keydown", (e) => {
+        if (
+          e.key === "Escape" &&
+          document.body.classList.contains("mobile-menu-open")
+        ) {
+          document.body.classList.remove("mobile-menu-open");
+        }
+      });
     </script>
   </body>
 </html>
